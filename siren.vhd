@@ -9,16 +9,18 @@ ENTITY siren IS
 		dac_LRCK : OUT STD_LOGIC;
 		dac_SCLK : OUT STD_LOGIC;
 		dac_SDIN : OUT STD_LOGIC; 
-		-- SWITCH : IN STD_LOGIC_VECTOR (7 DOWNTO 0);
-		BTNU : IN STD_LOGIC
+		SWITCH : IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+		BTNU : IN STD_LOGIC;
+		BTND : IN STD_LOGIC;
+		BTNC : IN STD_LOGIC
 	);
 END siren;
 
 ARCHITECTURE Behavioral OF siren IS
 	CONSTANT lo_tone : UNSIGNED (13 DOWNTO 0) := to_unsigned (344, 14); -- lower limit of siren = 256 Hz
 	CONSTANT hi_tone : UNSIGNED (13 DOWNTO 0) := to_unsigned (687, 14); -- upper limit of siren = 512 Hz
-	CONSTANT wail_speed : UNSIGNED (5 DOWNTO 0) := to_unsigned (8,8);
-	CONSTANT wail_speed_2 : UNSIGNED (7 DOWNTO 0) := to_unsigned (8, 8);
+	CONSTANT wail_speed : UNSIGNED (7 DOWNTO 0) := (OTHERS => '0');
+	--CONSTANT wail_speed_2 : UNSIGNED (7 DOWNTO 0) := to_unsigned (8, 8);
 	COMPONENT dac_if IS
 		PORT (
 			SCLK : IN STD_LOGIC;
@@ -32,6 +34,8 @@ ARCHITECTURE Behavioral OF siren IS
 	COMPONENT wail IS
 		PORT (
 		  BTNU_2 : IN STD_LOGIC;
+		  BTND_2 : IN STD_LOGIC;
+		  BTNC_2 : IN STD_LOGIC;
 			lo_pitch : IN UNSIGNED (13 DOWNTO 0);
 			hi_pitch : IN UNSIGNED (13 DOWNTO 0);
 			wspeed : IN UNSIGNED (7 DOWNTO 0);
@@ -82,6 +86,8 @@ BEGIN
 		w1 : wail
 		PORT MAP(
 		  BTNU_2 => BTNU,
+		  BTND_2 => BTND,
+		  BTNC_2 => BTNC,
 			lo_pitch => lo_tone, -- instantiate wailing siren
 			hi_pitch => hi_tone, 
 			wspeed => wail_speed, 
@@ -89,14 +95,5 @@ BEGIN
 			audio_clk => audio_clk, 
 			audio_data => data_L
 			);
-	   		w2 : wail
-		PORT MAP(
-		BTNU_2 => BTNU,
-			lo_pitch => lo_tone, -- instantiate wailing siren
-			hi_pitch => hi_tone, 
-			wspeed => wail_speed_2, 
-			wclk => slo_clk, 
-			audio_clk => audio_clk, 
-			audio_data => data_R
-			);
+	   	data_R <= data_L;
 END Behavioral;

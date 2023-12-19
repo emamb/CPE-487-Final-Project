@@ -8,6 +8,8 @@ USE IEEE.NUMERIC_STD.ALL;
 ENTITY wail IS
 	PORT (
 	   BTNU_2 : IN STD_LOGIC;
+	   BTND_2 : IN STD_LOGIC;
+	   BTNC_2 : IN STD_LOGIC;
 		lo_pitch : IN UNSIGNED (13 DOWNTO 0); -- lowest pitch (in units of 0.745 Hz)
 		hi_pitch : IN UNSIGNED (13 DOWNTO 0); -- highest pitch (in units of 0.745 Hz)
 		wspeed : IN UNSIGNED (7 DOWNTO 0); -- speed of wail in pitch units/wclk
@@ -20,6 +22,8 @@ ARCHITECTURE Behavioral OF wail IS
 	COMPONENT tone IS
 		PORT (
 		  BTNU_3 : IN STD_LOGIC;
+		  BTND_3 : IN STD_LOGIC;
+		  BTNC_3 : IN STD_LOGIC;
 			clk : IN STD_LOGIC;
 			pitch : IN UNSIGNED (13 DOWNTO 0);
 			data : OUT SIGNED (15 DOWNTO 0)
@@ -49,6 +53,8 @@ BEGIN
 	tgen : tone
 	PORT MAP(
 	   BTNU_3 => BTNU_2,
+	   BTND_3 => BTND_2,
+	   BTNC_3 => BTNC_2,
 		clk => audio_clk, -- instance a tone module
 		pitch => curr_pitch, -- use curr-pitch to modulate tone
 		data => audio_data

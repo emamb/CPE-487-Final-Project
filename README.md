@@ -52,8 +52,7 @@ The **siren.xdc** module three new lines have been added at the end compared to 
 These lines are defining the package pin, I/O standard, and port names for these buttons, which are not present in lab 5 code.
 Other than these additions, the rest of the code remains unchanged, maintaining the same clock creation and property settings for the ports clk_50MHz, dac_LRCK, dac_SCLK, dac_SDIN, and dac_MCLK.
 
-
-
+# Final Product Video
 https://github.com/emamb/CPE-487-Final-Project/assets/98351372/ddce0ab2-d392-49de-adb0-5b9e614f6140
 
 

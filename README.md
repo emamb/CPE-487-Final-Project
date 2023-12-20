@@ -28,22 +28,21 @@ The **dac_if.vhd** module is designed to convert 16-bit parallel stereo data int
 The **tone.vhd** module was originally the barebones of the lab 5 module but was changed with these tweaks:
 * Additional Input Ports: In the entity declaration, three new input ports (BTNU_3, BTND_3, BTNC_3) are added. These are likely buttons or inputs used to control the behavior of the module.
 * New Signal and Type: A new signal state and a new type state_type are introduced. state_type is an enumeration with four states (IDLE, PLAY_SQUARE_D, PLAY_SQUARE_E, PLAY_SQUARE_F), and state is used to track the current state of the module.
-* Amplitude Scaling Factor: A new constant AMPLITUDE_SCALING_FACTOR is defined, which is used to adjust the amplitude of the output signal.
+* Amplitude Scaling Factor: A new constant AMPLITUDE_SCALING_FACTOR is defined, which is used to adjust the amplitude of the output signal. Due to the low nature of Hz of the notes we are trying to replicate, amplitude was used to increase output volume. 
 * Modified Count Process: The process cnt_pr that updates the count signal is modified to only increment count when the state is not IDLE. This suggests that the counting (and thus waveform generation) only occurs in active states.
 * New Process for State Management and Waveform Generation: A new process is added to handle state transitions based on button inputs and to generate different waveforms based on the current state. This process uses a case statement to determine the output data based on the current state and quad values. The waveforms generated are square waves with amplitudes based on fixed values (98, 110, 117) multiplied by the AMPLITUDE_SCALING_FACTOR, depending on the state.
-* Waveform Generation Mechanism Change: The original code generated a triangle wave, whereas the new code generates square waves with different fixed amplitudes depending on the button pressed.
+* The Hz for the Square waves were calculated from the fact that for pitch = 1, the frequency would be 0.745 HZ. Using this equation, we were able to dictate the pitch for each note (98 for D, 110 for E, and 117 for F).
 * Removal of Triangle Wave Generation Logic: The logic to generate a triangle wave (using quad and index) is removed in the second version, replaced by the square wave generation logic in the new process.
 
 The **wail.vhd** module was taken from lab 5 and the following changes were made:
-* Addition of Button Inputs in Entity Interface: New inputs BTNU_2, BTND_2, and BTNC_2 were added to the entity wail. These are likely buttons for user interaction.
-* Addition of Button Inputs in Component Declaration: The tone component now includes additional inputs BTNU_3, BTND_3, and BTNC_3. These inputs correspond to the button inputs added in the entity.
+* Addition of Button Inputs in Entity Interface: New inputs BTNU_2, BTND_2, and BTNC_2 were added to the entity wail. These are passed from the Siren file to the Wail file.
+* Addition of Button Inputs in Component Declaration: The tone component now includes additional inputs BTNU_3, BTND_3, and BTNC_3. These inputs correspond to the button inputs added in the entity. These buttons will be passed to the Tone file.
 * Port Map Modifications: In the instantiation of the tone component (tgen), the newly added button inputs (BTNU_2, BTND_2, and BTNC_2) are mapped to the corresponding inputs in the component (BTNU_3, BTND_3, BTNC_3).
 
 The **siren.vhd** module was taken from lab 5 and the following changes were made:
 * Additional Input Ports: The ENTITY siren in the second code includes additional input ports: SWITCH, BTNU, BTND, and BTNC. These are not present in the first code.
 * Modification in wail_speed Constant: The wail_speed constant in the second code is defined as (OTHERS => '0'), whereas in the first code, it's defined with a specific value to_unsigned (8, 8).
 * Component wail Changes: In the second code, the COMPONENT wail includes additional input ports: BTNU_2, BTND_2, and BTNC_2. These are connected to the newly added input ports BTNU, BTND, and BTNC in the entity port map.
-* Commented Out Code: The line --wail_speed <= UNSIGNED(SWITCH); is commented out in the second code, suggesting an intended or previous use of the SWITCH input to set the wail_speed.
 
 The **siren.xdc** module three new lines have been added at the end compared to lab 5 code. These lines are setting properties for additional ports: BTNU, BTND, and BTNC.
 * set_property -dict { PACKAGE_PIN M18 IOSTANDARD LVCMOS33 } [get_ports { BTNU }]; #IO_L4N_T0_D05_14 Sch=btnu

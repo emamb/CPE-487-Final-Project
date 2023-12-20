@@ -56,6 +56,7 @@ Other than these additions, the rest of the code remains unchanged, maintaining 
 # Block Diagram
 * The signal quad is used to generate the square wave, where there are 4 quads made (00, 01, 10, and 11).
 * Square wave would be positive from 00 and 01, and negative from 10 and 11, and go back up to a positive pitch from 00 and 01 and this cycle continues.
+
 ![index of square](https://github.com/emamb/CPE-487-Final-Project/assets/112715031/b0be5346-2fda-4a97-8b46-296196029e2f)
 
 

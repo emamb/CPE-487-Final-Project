@@ -45,5 +45,15 @@ The **siren.vhd** module was taken from lab 5 and the following changes were mad
 * Component wail Changes: In the second code, the COMPONENT wail includes additional input ports: BTNU_2, BTND_2, and BTNC_2. These are connected to the newly added input ports BTNU, BTND, and BTNC in the entity port map.
 * Commented Out Code: The line --wail_speed <= UNSIGNED(SWITCH); is commented out in the second code, suggesting an intended or previous use of the SWITCH input to set the wail_speed.
 
-The **siren.xdc** module was taken from lab 5 and the following changes were made:
-* 
+The **siren.xdc** module three new lines have been added at the end compared to lab 5 code. These lines are setting properties for additional ports: BTNU, BTND, and BTNC.
+* set_property -dict { PACKAGE_PIN M18 IOSTANDARD LVCMOS33 } [get_ports { BTNU }]; #IO_L4N_T0_D05_14 Sch=btnu
+* set_property -dict { PACKAGE_PIN P18 IOSTANDARD LVCMOS33 } [get_ports { BTND }]; #IO_L9N_T1_DQS_D13_14 Sch=btnd
+* set_property -dict { PACKAGE_PIN N17 IOSTANDARD LVCMOS33 } [get_ports { BTNC }]; #IO_L9P_T1_DQS_14 Sch=btnc
+These lines are defining the package pin, I/O standard, and port names for these buttons, which are not present in lab 5 code.
+Other than these additions, the rest of the code remains unchanged, maintaining the same clock creation and property settings for the ports clk_50MHz, dac_LRCK, dac_SCLK, dac_SDIN, and dac_MCLK.
+
+
+
+https://github.com/emamb/CPE-487-Final-Project/assets/98351372/ddce0ab2-d392-49de-adb0-5b9e614f6140
+
+

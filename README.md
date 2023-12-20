@@ -19,7 +19,32 @@ Our group wanted to program the FPGA on the Nexys A7-100T board to generate thre
 **Nexys A7-100T board**
 
 # Vivado + Nexys Board Steps
+This project was taken from the foundings of Lab 5 in class. As such, the steps to implement the project into Vivado and the Nexys Board are taken from there as it is the same:
+*### 1. Create a new RTL project _siren_ in Vivado Quick Start
 
+* Create four new source files of file type VHDL called **_dac_if_**, **_tone_**, **_wail_**, and **_siren_**
+
+* Create a new constraint file of file type XDC called **_siren_**
+
+* Choose Nexys A7-100T board for the project
+
+* Click 'Finish'
+
+* Click design sources and copy the VHDL code from dac_if.vhd, tone.vhd, wail.vhd, siren.vhd
+
+* Click constraints and copy the code from siren.xdc
+
+### 2. Run synthesis
+
+### 3. Run implementation and open implemented design
+
+### 4. Generate bitstream, open hardware manager, and program device
+
+* Click 'Generate Bitstream'
+
+* Click 'Open Hardware Manager' and click 'Open Target' then 'Auto Connect'
+
+* Click 'Program Device' then xc7a100t_0 to download siren.bit to the Nexys A7-100T board
 # Code Decription
 The **dac_if.vhd** file is designed to convert 16-bit parallel stereo data into a serial format that is compatible with a digital to analog converter. Here's how it operates:
 * Whenever L_start is in a high state, it triggers the loading of a 16-bit data word from the left channel into a 16-bit serial shift register (SREG), occurring at the falling edge of the SCLK.

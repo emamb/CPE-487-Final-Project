@@ -93,7 +93,7 @@ This block diagram shows how each file connects to one another.
 ![program diagram](https://github.com/emamb/CPE-487-Final-Project/assets/112715031/44a0adb4-ca1f-4bb0-a0d6-dcf15f2c3ea3)
 
 # Summary + Difficulties Encountered + Conclusions
-The group as a whole worked together to think of ways to implement the different notes as the project had many points where it pivoted. We would all meet up together to work and dsicuss code when possible, and made sure to distribute the board for testing evenely among group members when it wasn't possible for us to meet for a day.
+The group as a whole worked together to think of ways to implement the different notes as the project had many points where it pivoted. We would all meet up together to work on and discuss code when possible, and made sure to distribute the board for testing evenly among group members when it wasn't possible for us to meet for a day.
 * Initially, the project wanted to use the sliders to add invididual notes.
   * However, the sliders were not working as intended and we also realized that playing a song through the use of activating and deactivating the sliders would become impractical as the notes would be held for too long. Along with this, the sliders were unable to generate a bitstream and thus caused the first pivot of the project.
 * From here, the idea of having the song played on loop was brainstormed and using the previously implemented quadrants from Lab 5 was attempted. The idea of the implementation was to have the quadrants play a single note in each quadrant that would result in a song playing on a loop due to it being repeated. This would also alleviate the initial issue of practicality of the sliders.

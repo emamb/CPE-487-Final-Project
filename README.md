@@ -114,6 +114,9 @@ The group as a whole worked together to think of ways to implement the different
   * We also believe that the notes themselves are low resolution in nature as the original lab states the sounds to be 16-bit, or lower if indexed and converted.
   * While the indexing and conversion was removed, it is not entirely known by the group what resolution the noise being produced is at other than it was based on the previously mentioned lab and thus may have a closer resolution to what is stated on there.  
 # Final Product Video
+* It is pretty much impossible to get a clear output to correctly distinct the notes from one another, due to having to also catch the audio via the phone microphone as well as the fact that the notes are quite close in Hz to one another, which tends to muddy out the distinctions overall - and is why not much of a distinction may be heard in the video.
+* Directly listening to the output of the notes with either a speaker or a pair of headphones (headphones are encouraged), a distinction can clearly be heard between the notes.
+
 https://github.com/emamb/CPE-487-Final-Project/assets/98351372/ddce0ab2-d392-49de-adb0-5b9e614f6140
 
 

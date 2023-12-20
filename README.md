@@ -16,3 +16,8 @@ Program the FPGA on the Nexys A7-100T board to generate three different wailing 
 
 ![i2s2](https://github.com/emamb/CPE-487-Final-Project/assets/98351372/3c5ee11d-ebac-480b-a4a6-51f2f3f2acb0)
 
+The dac_if module is designed to convert 16-bit parallel stereo data into a serial format that is compatible with a digital to analog converter. Here's how it operates:
+* Whenever L_start is in a high state, it triggers the loading of a 16-bit data word from the left channel into a 16-bit serial shift register (SREG), occurring at the falling edge of the SCLK.
+* As soon as L_start transitions to a low state, the SCLK begins to shift the data from SREG, starting with the most significant bit (MSBit), and sends it to the serial output SDATA at a speed of 1.56 Mb/s.
+* In a similar manner, a high state of R_start causes the right channel data to be loaded into SREG. This data is subsequently shifted out to SDATA.
+* The output data undergoes a change on the falling edge of SCLK. This timing ensures that the data remains stable when the DAC reads it on the SCLK's rising edge.

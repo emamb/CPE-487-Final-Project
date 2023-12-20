@@ -33,9 +33,6 @@ BEGIN
     END PROCESS;
 
     quad <= STD_LOGIC_VECTOR(count(15 DOWNTO 14)); -- splits count range into 4 phases
-
-    -- This select statement converts an unsigned 16-bit sawtooth that ranges from 65,535
-    -- into a signed 12-bit triangle wave that ranges from -16,383 to +16,383
     PROCESS
     BEGIN
         CASE state IS

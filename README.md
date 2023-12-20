@@ -52,7 +52,7 @@ The **dac_if.vhd** file is designed to convert 16-bit parallel stereo data into 
 * In a similar manner, a high state of R_start causes the right channel data to be loaded into SREG. This data is subsequently shifted out to SDATA.
 * The output data undergoes a change on the falling edge of SCLK. This timing ensures that the data remains stable when the DAC reads it on the SCLK's rising edge.
 
-The **tone.vhd** file was originally the barebones of the lab 5 module but was changed with these tweaks:
+The **tone.vhd** file was originally the barebones of the lab 5 module but was pretty much stripped down and changed with these tweaks:
 * Additional Input Ports: In the entity declaration, three new input ports (BTNU_3, BTND_3, BTNC_3) are added. These are the buttons used to play the notes once pressed.
 * New Signal and Type: A new signal state and a new type state_type are introduced. state_type is an enumeration with four states (IDLE, PLAY_SQUARE_D, PLAY_SQUARE_E, PLAY_SQUARE_F), and state is used to track the current state of the module.
 * Amplitude Scaling Factor: A new constant 'AMPLITUDE_SCALING_FACTOR' is defined, which is used to adjust the amplitude of the output signal. Due to the low nature of Hz of the notes we are trying to replicate, amplitude was used to increase output volume. 

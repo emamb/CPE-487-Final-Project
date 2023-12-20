@@ -10,7 +10,7 @@ ENTITY tone IS
         clk : IN STD_LOGIC; -- 48.8 kHz audio sampling clock
         pitch : IN UNSIGNED (13 DOWNTO 0); -- frequency (in units of 0.745 Hz)
         data : OUT SIGNED (15 DOWNTO 0)
-    ); -- signed triangle wave out
+    ); 
 END tone;
 
 ARCHITECTURE Behavioral OF tone IS
@@ -20,10 +20,6 @@ ARCHITECTURE Behavioral OF tone IS
     SIGNAL quad : STD_LOGIC_VECTOR (1 DOWNTO 0); -- current quadrant of phase
     CONSTANT AMPLITUDE_SCALING_FACTOR : INTEGER := 130; -- Adjust this factor as needed
 BEGIN
-    -- This process adds "pitch" to the current phase every sampling period. Generates
-    -- an unsigned 16-bit sawtooth waveform. Frequency is determined by pitch. For
-    -- example when pitch=1, then frequency will be 0.745 Hz. When pitch=16,384, frequency
-    -- will be 12.2 kHz.
     cnt_pr : PROCESS
     BEGIN
         WAIT UNTIL rising_edge(clk);

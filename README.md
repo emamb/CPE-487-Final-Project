@@ -13,8 +13,9 @@ Program the FPGA on the Nexys A7-100T board to generate three different wailing 
 * Pmod I2S2 requires a 3.5-mm connector for a headphone or speaker
 * The Digilent Pmod I2S2 features a Cirrus CS5343 Multi-Bit Audio A/D Converter and a Cirrus CS4344 Stereo D/A Converter, each connected to 3.5mm Audio Jacks. These circuits allow a system board to transmit and receive stereo audio signals via the I2S protocol. The Pmod I2S2 supports 24-bit resolution per channel at input sample rates up to 108 KHz.
 
-
 ![i2s2](https://github.com/emamb/CPE-487-Final-Project/assets/98351372/3c5ee11d-ebac-480b-a4a6-51f2f3f2acb0)
+
+Nexys A7-100T board
 ![71AqT8JnX8L](https://github.com/emamb/CPE-487-Final-Project/assets/98351372/ab7b93cd-75ce-4b3e-b3b1-042b9558b3bc)
 
 The **dac_if** module is designed to convert 16-bit parallel stereo data into a serial format that is compatible with a digital to analog converter. Here's how it operates:

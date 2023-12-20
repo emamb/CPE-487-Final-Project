@@ -19,13 +19,13 @@ Program the FPGA on the Nexys A7-100T board to generate three different wailing 
 **Nexys A7-100T board**
 
 # Code Decription
-The **dac_if** module is designed to convert 16-bit parallel stereo data into a serial format that is compatible with a digital to analog converter. Here's how it operates:
+The **dac_if.vhd** module is designed to convert 16-bit parallel stereo data into a serial format that is compatible with a digital to analog converter. Here's how it operates:
 * Whenever L_start is in a high state, it triggers the loading of a 16-bit data word from the left channel into a 16-bit serial shift register (SREG), occurring at the falling edge of the SCLK.
 * As soon as L_start transitions to a low state, the SCLK begins to shift the data from SREG, starting with the most significant bit (MSBit), and sends it to the serial output SDATA at a speed of 1.56 Mb/s.
 * In a similar manner, a high state of R_start causes the right channel data to be loaded into SREG. This data is subsequently shifted out to SDATA.
 * The output data undergoes a change on the falling edge of SCLK. This timing ensures that the data remains stable when the DAC reads it on the SCLK's rising edge.
 
-The **tone** module was originally the barebones of the lab 5 module but was changed with these tweaks:
+The **tone.vhd** module was originally the barebones of the lab 5 module but was changed with these tweaks:
 * Additional Input Ports: In the entity declaration, three new input ports (BTNU_3, BTND_3, BTNC_3) are added. These are likely buttons or inputs used to control the behavior of the module.
 * New Signal and Type: A new signal state and a new type state_type are introduced. state_type is an enumeration with four states (IDLE, PLAY_SQUARE_D, PLAY_SQUARE_E, PLAY_SQUARE_F), and state is used to track the current state of the module.
 * Amplitude Scaling Factor: A new constant AMPLITUDE_SCALING_FACTOR is defined, which is used to adjust the amplitude of the output signal.
@@ -34,3 +34,4 @@ The **tone** module was originally the barebones of the lab 5 module but was cha
 * Waveform Generation Mechanism Change: The original code generated a triangle wave, whereas the new code generates square waves with different fixed amplitudes depending on the button pressed.
 * Removal of Triangle Wave Generation Logic: The logic to generate a triangle wave (using quad and index) is removed in the second version, replaced by the square wave generation logic in the new process.
 
+The **wail.chd** module

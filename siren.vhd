@@ -20,7 +20,6 @@ ARCHITECTURE Behavioral OF siren IS
 	CONSTANT lo_tone : UNSIGNED (13 DOWNTO 0) := to_unsigned (344, 14); -- lower limit of siren = 256 Hz
 	CONSTANT hi_tone : UNSIGNED (13 DOWNTO 0) := to_unsigned (687, 14); -- upper limit of siren = 512 Hz
 	CONSTANT wail_speed : UNSIGNED (7 DOWNTO 0) := (OTHERS => '0');
-	--CONSTANT wail_speed_2 : UNSIGNED (7 DOWNTO 0) := to_unsigned (8, 8);
 	COMPONENT dac_if IS
 		PORT (
 			SCLK : IN STD_LOGIC;
@@ -53,7 +52,6 @@ BEGIN
 	-- to generate all necessary timing signals. dac_load_L and dac_load_R are pulses
 	-- sent to dac_if to load parallel data into shift register for serial clocking
 	-- out to DAC
-	--wail_speed <= UNSIGNED(SWITCH);
 	tim_pr : PROCESS
 	BEGIN
 		WAIT UNTIL rising_edge(clk_50MHz);

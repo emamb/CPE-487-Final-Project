@@ -55,7 +55,7 @@ Other than these additions, the rest of the code remains unchanged, maintaining 
 
 # Block Diagram
 
-# Summary + Conclusions
+# Summary + Difficulties Encountered + Conclusions
 
 # Final Product Video
 https://github.com/emamb/CPE-487-Final-Project/assets/98351372/ddce0ab2-d392-49de-adb0-5b9e614f6140

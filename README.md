@@ -53,12 +53,19 @@ The **siren.xdc** constraint file included three new lines that have been added 
 These lines are defining the package pin, I/O standard, and port names for these buttons, which are not present in lab 5 code.
 Other than these additions, the rest of the code remains unchanged, maintaining the same clock creation and property settings for the ports clk_50MHz, dac_LRCK, dac_SCLK, dac_SDIN, and dac_MCLK.
 
-# Block Diagram
+# Diagrams
 The signal quad is used to generate the square wave, where there are 4 quads made (00, 01, 10, and 11).
 * Square wave would be positive from 00 and 01, and negative from 10 and 11, and go back up to a positive pitch from 00 and 01 and this cycle continues.
 
 ![index of square](https://github.com/emamb/CPE-487-Final-Project/assets/112715031/b0be5346-2fda-4a97-8b46-296196029e2f)
 
+This block diagram shows how each file connects to one another.
+* The siren.xdc file connects to all files, as it defines package pins, I/O Standards, and port names that are used in every file.
+* The input first goes to the siren file, where lo_tone, hi_tone, and wail_speed all define the parameters of the siren. the signed audio sequences are sent to the dac_if file to convert them into the required serial stream, and the input buttons are then sent to the wail file.
+* The wail file defines the upper and lower limits of the tone and how fast the pitch changes. The wail file passes the input buttons to the tone file.
+* The tone file determines the frequency of the tone and the type of wave that is being outputted.
+
+![program diagram](https://github.com/emamb/CPE-487-Final-Project/assets/112715031/44a0adb4-ca1f-4bb0-a0d6-dcf15f2c3ea3)
 
 # Summary + Difficulties Encountered + Conclusions
 

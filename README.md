@@ -34,4 +34,10 @@ The **tone.vhd** module was originally the barebones of the lab 5 module but was
 * Waveform Generation Mechanism Change: The original code generated a triangle wave, whereas the new code generates square waves with different fixed amplitudes depending on the button pressed.
 * Removal of Triangle Wave Generation Logic: The logic to generate a triangle wave (using quad and index) is removed in the second version, replaced by the square wave generation logic in the new process.
 
-The **wail.chd** module
+The **wail.vhd** module was taken from lab 5 and the following changes were made:
+* Addition of Button Inputs in Entity Interface: New inputs BTNU_2, BTND_2, and BTNC_2 were added to the entity wail. These are likely buttons for user interaction.
+* Addition of Button Inputs in Component Declaration: The tone component now includes additional inputs BTNU_3, BTND_3, and BTNC_3. These inputs correspond to the button inputs added in the entity.
+* Port Map Modifications: In the instantiation of the tone component (tgen), the newly added button inputs (BTNU_2, BTND_2, and BTNC_2) are mapped to the corresponding inputs in the component (BTNU_3, BTND_3, BTNC_3).
+
+The **siren.vhd** module was taken from lab 5 and the following changes were made:
+* 

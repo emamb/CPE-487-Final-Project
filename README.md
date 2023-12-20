@@ -40,4 +40,10 @@ The **wail.vhd** module was taken from lab 5 and the following changes were made
 * Port Map Modifications: In the instantiation of the tone component (tgen), the newly added button inputs (BTNU_2, BTND_2, and BTNC_2) are mapped to the corresponding inputs in the component (BTNU_3, BTND_3, BTNC_3).
 
 The **siren.vhd** module was taken from lab 5 and the following changes were made:
+* Additional Input Ports: The ENTITY siren in the second code includes additional input ports: SWITCH, BTNU, BTND, and BTNC. These are not present in the first code.
+* Modification in wail_speed Constant: The wail_speed constant in the second code is defined as (OTHERS => '0'), whereas in the first code, it's defined with a specific value to_unsigned (8, 8).
+* Component wail Changes: In the second code, the COMPONENT wail includes additional input ports: BTNU_2, BTND_2, and BTNC_2. These are connected to the newly added input ports BTNU, BTND, and BTNC in the entity port map.
+* Commented Out Code: The line --wail_speed <= UNSIGNED(SWITCH); is commented out in the second code, suggesting an intended or previous use of the SWITCH input to set the wail_speed.
+
+The **siren.xdc** module was taken from lab 5 and the following changes were made:
 * 

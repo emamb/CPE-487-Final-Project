@@ -18,6 +18,8 @@ Our group wanted to program the FPGA on the Nexys A7-100T board to generate thre
 ![71AqT8JnX8L](https://github.com/emamb/CPE-487-Final-Project/assets/98351372/ab7b93cd-75ce-4b3e-b3b1-042b9558b3bc)
 **Nexys A7-100T board**
 
+# Vivado + Nexys Board Steps
+
 # Code Decription
 The **dac_if.vhd** file is designed to convert 16-bit parallel stereo data into a serial format that is compatible with a digital to analog converter. Here's how it operates:
 * Whenever L_start is in a high state, it triggers the loading of a 16-bit data word from the left channel into a 16-bit serial shift register (SREG), occurring at the falling edge of the SCLK.
@@ -50,6 +52,10 @@ The **siren.xdc** constraint file included three new lines that have been added 
 * set_property -dict { PACKAGE_PIN N17 IOSTANDARD LVCMOS33 } [get_ports { BTNC }]; #IO_L9P_T1_DQS_14 Sch=btnc
 These lines are defining the package pin, I/O standard, and port names for these buttons, which are not present in lab 5 code.
 Other than these additions, the rest of the code remains unchanged, maintaining the same clock creation and property settings for the ports clk_50MHz, dac_LRCK, dac_SCLK, dac_SDIN, and dac_MCLK.
+
+# Block Diagram
+
+# Summary + Conclusions
 
 # Final Product Video
 https://github.com/emamb/CPE-487-Final-Project/assets/98351372/ddce0ab2-d392-49de-adb0-5b9e614f6140

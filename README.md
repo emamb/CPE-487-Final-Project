@@ -20,7 +20,7 @@ Our group wanted to program the FPGA on the Nexys A7-100T board to generate thre
 
 # Vivado + Nexys Board Steps
 This project was taken from the foundings of Lab 5 in class. As such, the steps to implement the project into Vivado and the Nexys Board are taken from there as it is the same:
-*### 1. Create a new RTL project _siren_ in Vivado Quick Start
+### 1. Create a new RTL project _siren_ in Vivado Quick Start
 
 * Create four new source files of file type VHDL called **_dac_if_**, **_tone_**, **_wail_**, and **_siren_**
 
